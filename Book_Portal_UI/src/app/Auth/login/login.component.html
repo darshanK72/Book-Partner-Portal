@@ -1,0 +1,62 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="cover">
+            <div class="front">
+                <img src="../../../assets/img/FrontImage.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="forms">
+            <div class="form-content">
+                <div class="login-form">
+                    <div class="title">Login</div>
+                    <form [formGroup]="loginForm">
+                        <div class="input-boxes">
+                            <div class="mb-2 input-box">
+                                <label for="role">Role</label>
+                                <!-- <input type="text" name="role" id="role"> -->
+
+                                <select id="role" name="role" formControlName="role" class="form-select">
+                                    <option value="author" selected>Author</option>
+                                    <option value="publisher">Publisher</option>
+                                </select>
+
+                                <small
+                                    *ngIf="loginForm.controls['role'].dirty && loginForm.hasError('required','role')">*Role
+                                    is Required</small>
+
+                            </div>
+                            <div class="mb-2 input-box">
+                                <label for="username">User Name</label>
+                                <input type="text" formControlName="username" name="username" id="username" [class.error]="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">
+                                <small
+                                    *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">*User
+                                    Name is required</small>
+                            </div>
+                            <div class="mb-2 input-box">
+                                <label for="password">Password</label>
+                                <div class="inputbox">
+                                    <input type="password" formControlName="password" id="password" required>
+                                    <i class="bi bi-eye-slash-fill toggle-password" (click)="togglePasswordVisibility()"></i>
+                                </div>
+                                <small
+                                    *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">*Password
+                                    is required</small>
+                            </div>
+
+                            <div class="text text-center"><a href="#">Forgot password?</a></div>
+
+                            <div class="mb-2 input-box">
+                                <button type="submit" (click)="onSubmit()">Login</button>
+                            </div>
+                            <div class="text sign-up-text mb-2">Don't have an account? Sign Up For
+                                <a routerLink="/author-register">Author</a> OR
+                                <a routerLink="/publisher-register">Publisher</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

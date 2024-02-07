@@ -1,0 +1,102 @@
+<div class="wrapper">
+    <div class="holder">
+
+        <div class="container custom-rounded bg-white">
+            <div class="row">
+                <div class="col-md-4 custom-column">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                        <img class="rounded-circle" style="margin-top: 25px;" width="250px"
+                            src="../../../assets/img/ramesh.png">
+                        <span class="font-weight-bold" style="margin-top: -20px;">Publisher</span>
+                        <span class="">{{publisherId}}</span>
+                        <span class="text-black-50">{{publisher.PubName | titlecase}}</span>
+                    </div>
+                </div>
+                <div class="col-sm-7 col-md-8 d-flex flex-column justify-content-center">
+                    <div class="py-2 pl-1 pr-2">
+                        <div class="">
+                            <h4 class="text-center mt-3">Edit Your Profile</h4>
+                        </div>
+                        <form style="margin-top: -20px;" [formGroup]="publisherUpdateForm">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label class="labels">Publication Name</label>
+                                    <input type="text" class="form-control rounded" placeholder="First Name"
+                                        tabindex="1" formControlName="pubName">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="labels">Username</label>
+                                    <input type="text" class="form-control rounded" tabindex="4"
+                                        placeholder="Enter new password" formControlName="username">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="labels">Password</label>
+                                    <input type="text" class="form-control rounded" tabindex="4"
+                                        placeholder="Enter new password" formControlName="password">
+                                </div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col-md-12">
+                                    <div class="col-md-12">
+                                        <label class="labels">Email ID</label>
+                                        <input type="text" class="form-control rounded" tabindex="5"
+                                            placeholder="Update Email Address" formControlName="email">
+                                    </div>
+                                    <div class="row mt-1">
+                                        <div class="col-md-4">
+                                            <label class="labels">City</label>
+                                            <input type="text" class="form-control rounded" tabindex="6"
+                                                placeholder="Enter your City" formControlName="city">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="labels">State</label>
+                                            <input type="text" class="form-control rounded" tabindex="7"
+                                                placeholder="Enter your State"formControlName="state">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="labels">Country</label>
+                                            <input type="text" class="form-control rounded" tabindex="8"
+                                                placeholder="Country Name" formControlName="country">
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="mb-3 mt-2">
+                                                <label for="logo" class="labels">Logo</label>
+                                                <input #fileInput type="file"  (change)="onFileChange($event)" class="form-control">
+                                                <!-- <small
+                                                *ngIf="registerForm.controls['logo'].dirty && registerForm.hasError('required','logo')">*Logo
+                                                is Required</small> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="labels">Additional Information</label>
+                                            <!-- <textarea type="text" class="form-control rounded additional-information"
+                                                tabindex="9" > -->
+                                                <input class="ad" type="text" name="prInfo" id="" cols="30" rows="3" formControlName="prInfo" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-2 text-center"><button class="btn btn-primary profile-button"
+                                        type="button" tabindex="10" (click)="onSubmit()">Save
+                                        Profile</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- <div class="col-md-4">
+        <div class="p-3 py-5">
+          <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span
+              class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
+          <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text"
+              class="form-control rounded" placeholder="experience" value=""></div> <br>
+          <div class="col-md-12"><label class="labels">Additional Details</label><input type="text"
+              class="form-control rounded" placeholder="additional details" value=""></div>
+        </div> -->
+
+            </div>
+
+        </div>
+
+    </div>

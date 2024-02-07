@@ -1,0 +1,115 @@
+<div class="sidebar">
+  <div class="logo-details" style="background-color: #5066e1; margin:-15px;">
+    <span class="logo_name">
+      <img src="../../../assets/img/book 22.png" style="width: 180px; height: 70px; 
+                border-radius: 10px; margin: 25px 0 0 30px;" alt="Logo Image">
+    </span>
+  </div>
+  <ul class="nav-links">
+    <div class="forpublisher" *ngIf="isLoggedInPublisher()">
+      <li>
+        <a routerLink="/dashboard/titles" class="active">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Titles</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/dashboard/authors">
+          <i class='bx bx-box'></i>
+          <span class="links_name">Authors</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/dashboard/employees">
+          <i class='bx bx-coin-stack'></i>
+          <span class="links_name">Employees</span>
+        </a>
+      </li>
+    </div>
+
+    <div class="forauthor" *ngIf="isLoggedInAuthor()">
+      <li>
+        <a routerLink="/dashboard/title-request">
+          <i class='bx bx-book-alt'></i>
+          <span class="links_name">Request Title Publish</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/dashboard/publishers">
+          <i class='bx bx-book-alt'></i>
+          <span class="links_name">Publishers</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/dashboard/owntitles">
+          <i class='bx bx-book-alt'></i>
+          <span class="links_name">Own Titles</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/dashboard/stores">
+          <i class='bx bx-book-alt'></i>
+          <span class="links_name">Stores Selling Title</span>
+        </a>
+      </li>
+    </div>
+    <li class="logout">
+    <li (click)="logout()" class="log_out">
+      <a>
+        <i class='bx bx-log-out'></i>
+        <span class="links_name">Log out</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+<section class="home-section">
+  <nav>
+
+
+
+    <section class="content-section"></section>
+
+    <!-- <div class="profile-details">
+       <img src="../../../assets/img/profile.png" alt="Image not found">
+      <span class="admin_name">Admin</span>
+      <i class='bx bx-chevron-down'></i>
+      <ul class="dropdown-menu">
+        <li><a routerLink="#">My Profile</a></li>
+        <li><a routerLink="#">Orders</a></li>
+      </ul>
+    </div> -->
+  </nav>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <!-- <i class='bx bx-menu sidebarBtn'></i> -->
+        <!-- <span class="dashboard">Dashboard</span> -->
+      </div>
+      <div class="search-box" routerLink="/dashboard">
+        <div class="curved-rectangle">
+          <span class="placeholder-text">Dashboard </span>
+        </div>
+        <!-- <input type="text" placeholder="">
+        <i class='bx bx-search'></i> -->
+      </div>
+      <div class="profile-details">
+        <img src="../../../assets/img/profile.png" alt="">
+        <a routerLink="/dashboard/publisher-profile" class="prof" *ngIf="isLoggedInPublisher()">
+          <span class="admin_name">{{user.PubName | titlecase}}</span>
+        </a>
+        <a routerLink="/dashboard/author-profile" class="prof" *ngIf="isLoggedInAuthor()">
+          <span class="admin_name">{{user.AuFname +' '+ user.AuLname | titlecase}}</span>
+        </a>
+      </div>
+    </nav>
+  </section>
+  <router-outlet></router-outlet>
+</section>
+<div class="curved-rectangle2" *ngIf="isDashboardRoute()">
+  <img src="/assets/img/book 2.png" alt="Image">
+
+  <video src="/assets/img/myvid.mp4" autoplay loop></video>
+</div>
